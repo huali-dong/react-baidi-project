@@ -1,28 +1,24 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import MainContainer from './pages/Main/MainContainer';
+import axios from "axios"
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+  // constructor(props){
+  //   super(props)
+  // }
+  // componentWillMount(){
+  //   axios.get("/bda/bd-user/api/users/getUsersInfo?_t=1543030631715")
+  //   .then((result)=>{
+  //     console.log(result)
+  //   })
+  //   // axios.get("https://m.bd-ego.com/bd-user/api/users/getUsersInfo?_t=1543030631715")
+  //   // .then((result)=>{
+  //   //   console.log(result)
+  //   // })
+  // }
+    render(){
+      return (
+        <MainContainer/>
+      )
+    }
 }
-
-export default App;
+export default App
