@@ -3,9 +3,46 @@ import FriImg from "@as/images/friday.gif";
 import Miaosha from "@as/images/maiosha.gif";
 import MiaoshaImg from "@as/images/miaosha.png"
 import {HomemainContainer} from "./styled";
+import Swiper from "swiper"
 import connect from "@connect"
 class Homemain extends Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            list : []
+        }
+        this.rendswipersilde= this.rendswipersilde.bind(this)
+    }
     componentDidMount(){
+        //实列化swiper
+        this.props.home_actions.getSeconds()
+        var mySwiper = new Swiper('.swiper-container',{
+            freeMode: true,
+            slidesPerView: "auto",
+            spaceBetween: 10,
+            slidesOffsetAfter: 0,
+          });
+    }
+    componentWillReceiveProps(props,state){
+        this.setState({
+            list: props.home.seconds
+        })
+        console.log(this.state.list)
+    }
+    rendswipersilde(){
+        if(!this.state.list) return false;
+        return (
+            this.state.list.map((item,i)=>(
+                <div className="swiper-slide"
+                    
+                key={i}>
+                    <img src={item.pLogo}></img>
+                    <div className="name">{item.pName}</div>
+                    <div className="price">{item.actPrice}</div>
+                    <div className="lowprie">{item.referPrice}</div>
+                </div>
+            ))
+        )
     }
     render(){
         return (
@@ -33,16 +70,11 @@ class Homemain extends Component{
                             <a className="link">更多秒杀</a>
                             <i></i>
                         </h2>
-                        <ul>
-                            <li>
-                                <a>
-                                    <div className="img"><img></img></div>
-                                    <div className="name"></div>
-                                    <div className="price"></div>
-                                    <div className="lowprie"></div>
-                                </a>
-                            </li>
-                        </ul>
+                        <div className="swiper-container">
+                            <div className="swiper-wrapper">
+                               {this.rendswipersilde()}
+                            </div>
+                        </div>
                     </div>
                 </HomemainContainer>  
             </Fragment>
@@ -50,4 +82,4 @@ class Homemain extends Component{
     }
 }
 
-export default connect(Homemain,[{name: 'home', state: ['swiper']}])
+export default connect(Homemain,[{name: 'home', state: ['swiper','seconds']}])

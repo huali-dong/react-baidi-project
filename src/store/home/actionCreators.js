@@ -12,10 +12,15 @@ export default  {
         //     })
 
         // }
-
         return {
-            type:types.GETSWIPER,
+            type:types.GETSWIPER,//获取主页面的大多数数据
             payload: axios.get("/bda/bd-marketing/api/channel/getNewHeadPageData?_t=1543039484443")
+        }
+    },
+    getSeconds(){
+        return {
+            type:types.GETSECONDS,
+            payload : axios.get("/bda/bd-marketing/api/activity/querySeckillActivity?activityId=1706230925400028&_t=1543114778554")
         }
     }
 }

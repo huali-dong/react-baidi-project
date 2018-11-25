@@ -10,6 +10,9 @@ class Swiper extends Component{
     componentDidMount(){
         this.props.home_actions.getswiper()
     }
+    componentWillReceiveProps(){
+        console.log(this.props)
+    }
     render(){
         return (
             <Fragment> 
@@ -27,8 +30,8 @@ class Swiper extends Component{
         )
     }
     renderswiper(){
-        if(this.props.home.length>0){
-            var  list = this.props.home[0].list 
+        if(this.props.home.swiper.length>0){
+            var  list = this.props.home.swiper[0].list 
         }else{
             return "";
         }

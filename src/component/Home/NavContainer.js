@@ -15,19 +15,20 @@ class NavContnier extends Component{
         }
     }
     componentDidMount(){
-         console.log(this.props)
          this.props.home_actions.getswiper()
     }
     componentWillReceiveProps(){
-        if(this.props.home.length>0){
-            var resdata = this.props.home[1].list
+        if(this.props.home.swiper.length>0){
+            //处理nav导航栏的数据
+            var resdata = this.props.home.swiper[1].list
             var res =  resdata.splice(0,4)
-            var resdatas = this.props.home[2].list
+            var resdatas = this.props.home.swiper[2].list
             var ress =  resdatas.splice(0,4)
         }else{
             return false;
         }
         this.setState({
+            //在接收到属性之前更改状态
             data:res.map((item,i)=>({
                 icon:item.bannerImg,
             })),

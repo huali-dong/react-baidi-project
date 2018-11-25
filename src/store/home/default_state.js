@@ -1,3 +1,4 @@
 export default {
-    swiper : []
+    swiper : [],
+    seconds : []
 }
