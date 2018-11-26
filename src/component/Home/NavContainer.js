@@ -6,23 +6,16 @@ class NavContnier extends Component{
     constructor(props){
         super(props)
         this.state = {
-            // data: Array.from(new Array(8)).map((_val, i) => ({
-            //     icon: 'https://gw.alipayobjects.com/zos/rmsportal/nywPmnTAvTmLusPxHPSu.png',
-            //     text: `name${i}`,
-            //   })),
             data:[],
             data2:[]
         }
     }
-    componentDidMount(){
-         this.props.home_actions.getswiper()
-    }
-    componentWillReceiveProps(){
-        if(this.props.home.swiper.length>0){
+    componentWillReceiveProps(props,state){//一开始会执行一遍，没有数据，所以在接收新的属性之前先判断
+        if(props.home.swiper.length>0){
             //处理nav导航栏的数据
-            var resdata = this.props.home.swiper[1].list
+            var resdata = props.home.swiper[1].list
             var res =  resdata.splice(0,4)
-            var resdatas = this.props.home.swiper[2].list
+            var resdatas = props.home.swiper[2].list
             var ress =  resdatas.splice(0,4)
         }else{
             return false;

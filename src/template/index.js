@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component,Fragment } from 'react'
 
 class Template extends Component {
 
     render () {
         return (
-            <div>
+            <Fragment>
                 
-            </div>
+            </Fragment>
         )
     }
 

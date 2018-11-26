@@ -19,6 +19,7 @@ module.exports = function override(config, env) {
         '@pages': resolve('pages'),
         '@lib': resolve('lib'),
         '@connect': resolve('connect'),
+        '@util' : resolve('util')
     }
     return config;
 };

@@ -32,3 +32,18 @@ export const NavContanier = styled.div`
     }
 `
 
+export const  ProductdetailBox = styled.div`
+
+`
+export const ScrollTop = styled.div`
+    position: fixed;
+    bottom: 1.933333rem;
+    right: .266667rem;
+    z-index:100;
+    img{
+        width: 1.173333rem;
+        height: 1.173333rem;
+    }
+    
+`
+

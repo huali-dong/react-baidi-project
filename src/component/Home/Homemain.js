@@ -2,47 +2,75 @@ import React, { Component,Fragment } from 'react';
 import FriImg from "@as/images/friday.gif";
 import Miaosha from "@as/images/maiosha.gif";
 import MiaoshaImg from "@as/images/miaosha.png"
-import {HomemainContainer} from "./styled";
+import {HomemainContainer,Isreal} from "./styled";
+import Homecommon from "./Homecommon"
+import Homeoverseas from "./Homeoverseas"
 import Swiper from "swiper"
 import connect from "@connect"
 class Homemain extends Component{
     constructor(props){
         super(props)
         this.state = {
-            list : []
+            list : [],
+            isreal:[]
         }
-        this.rendswipersilde= this.rendswipersilde.bind(this)
+        this.rendswipersilde= this.rendswipersilde.bind(this);
+        this.renderHomecommon = this.renderHomecommon.bind(this)
     }
     componentDidMount(){
         //实列化swiper
-        this.props.home_actions.getSeconds()
-        var mySwiper = new Swiper('.swiper-container',{
+        new Swiper('.swiper-container',{
+            autoplay: true,
             freeMode: true,
-            slidesPerView: "auto",
-            spaceBetween: 10,
+            slidesPerView: 0,
             slidesOffsetAfter: 0,
+            spaceBetween:30,
           });
     }
     componentWillReceiveProps(props,state){
-        this.setState({
-            list: props.home.seconds
-        })
-        console.log(this.state.list)
+        if(props.home.swiper.length>0){
+            this.setState({
+                list: props.home.seconds,
+                isreal:props.home.swiper[9].list[0].bannerImg
+            })
+        }else{
+            return false;
+        } 
     }
     rendswipersilde(){
         if(!this.state.list) return false;
         return (
             this.state.list.map((item,i)=>(
                 <div className="swiper-slide"
-                    
                 key={i}>
                     <img src={item.pLogo}></img>
                     <div className="name">{item.pName}</div>
-                    <div className="price">{item.actPrice}</div>
+                    <div className="price">￥{item.actPrice}
+                    &nbsp;
+                        <i className="fa fa-plus-circle"></i>
+                    </div>
                     <div className="lowprie">{item.referPrice}</div>
                 </div>
             ))
         )
+    }
+    renderHomecommon(){
+        if(this.props.home.swiper.length>0){
+            return(
+                <Fragment>
+                    <Homecommon imgindex = {10}  activityId={this.props.home.swiper[11].list[0].activityId}></Homecommon>
+                    <Homecommon imgindex = {12}  activityId={this.props.home.swiper[13].list[0].activityId}></Homecommon>
+                    <Homecommon imgindex = {14}  activityId={this.props.home.swiper[15].list[0].activityId}></Homecommon>
+                    <Homecommon imgindex = {16}  activityId={this.props.home.swiper[17].list[0].activityId}></Homecommon>
+                    <Homecommon imgindex = {18}  activityId={this.props.home.swiper[19].list[0].activityId}></Homecommon>
+                    <Homecommon imgindex = {20}  activityId={this.props.home.swiper[21].list[0].activityId}></Homecommon>
+                    <Homecommon imgindex = {22}  activityId={this.props.home.swiper[23].list[0].activityId}></Homecommon>
+                </Fragment>
+            )
+        }else{
+            return "";
+        }
+
     }
     render(){
         return (
@@ -70,13 +98,23 @@ class Homemain extends Component{
                             <a className="link">更多秒杀</a>
                             <i></i>
                         </h2>
-                        <div className="swiper-container">
-                            <div className="swiper-wrapper">
-                               {this.rendswipersilde()}
+                        <div className="swiper-box">
+                            <div className="swiper-container">
+                                <div className="swiper-wrapper">
+                                     {this.rendswipersilde()}
+                                </div>
                             </div>
                         </div>
                     </div>
-                </HomemainContainer>  
+                </HomemainContainer> 
+                <Homeoverseas></Homeoverseas> 
+                <Isreal>
+                    <img src={this.state.isreal}></img>
+                </Isreal>
+                {
+                    this.renderHomecommon()
+                }
+               
             </Fragment>
         )
     }

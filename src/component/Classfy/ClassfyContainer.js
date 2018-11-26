@@ -3,10 +3,11 @@ import {
     ClassfyContainerbox,
     ClassfyContainerboxItem,
     ClassfyContainerboxRight,
-    ClassfyContainerboxRightLi
+    ClassfyContainerboxRightLi,
 } 
-from "./Classfystyled"
-import arrowImg from "@as/images/zuo.png"
+from "./Classfystyled";
+import arrowImg from "@as/images/zuo.png";
+import axios from "axios"
 
 class Classfycontainer extends Component{
     constructor(props){
@@ -14,35 +15,43 @@ class Classfycontainer extends Component{
         this.state = {
             isActive  : false
         }
-        this.changeLink = this.changeLink.bind(this)
+        this.renderClassfyRight = this.renderClassfyRight.bind(this)
+        this.rendereClassfyContinerbox = this.rendereClassfyContinerbox.bind(this)
     }
-    changeLink(){
-
+    componentDidMount(){
+        axios.get("/bda/bd-product/api/categ/itemCategList?_t=1543203592486")
+        .then((res)=>{
+            console.log(res)
+        }).catch((result)=>{
+            console.log(result)
+        })
+    }
+    rendereClassfyContinerbox(){
+        return(
+            <ClassfyContainerboxItem>
+                <a>洗护用品</a>
+                <img src={arrowImg}></img>
+            </ClassfyContainerboxItem>
+        )
+    }
+    renderClassfyRight(){
+        return (
+            <ClassfyContainerboxRightLi>
+                <img></img>
+                <div>quanbu</div>
+            </ClassfyContainerboxRightLi>
+        )
     }
     render(){
         return (
             <Fragment>
                <ClassfyContainerbox>
                    <ul>
-                      <ClassfyContainerboxItem>
-                          <a>洗护用品</a>
-                          <img src={arrowImg}></img>
-                      </ClassfyContainerboxItem>
+                     {this.rendereClassfyContinerbox()}
                    </ul>
                    <ClassfyContainerboxRight>
                        <ul>
-                        <ClassfyContainerboxRightLi>
-                            <img></img>
-                            <div>quanbu</div>
-                        </ClassfyContainerboxRightLi>
-                        <ClassfyContainerboxRightLi>
-                            <img></img>
-                            <div>quanbu</div>
-                        </ClassfyContainerboxRightLi>
-                        <ClassfyContainerboxRightLi>
-                            <img></img>
-                            <div>quanbu</div>
-                        </ClassfyContainerboxRightLi>
+                           {this.renderClassfyRight()}
                        </ul>
                    </ClassfyContainerboxRight>
                </ClassfyContainerbox>

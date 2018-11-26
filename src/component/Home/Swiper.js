@@ -1,17 +1,10 @@
 import React, { Component,Fragment } from 'react';
-import swiper from "@as/images/swiper.png";
 import { SwriperContainer } from "./styled";
 import {  Carousel } from 'antd-mobile';
 import connect from "@connect";
 class Swiper extends Component{
     constructor(props){
         super(props)
-    }
-    componentDidMount(){
-        this.props.home_actions.getswiper()
-    }
-    componentWillReceiveProps(){
-        console.log(this.props)
     }
     render(){
         return (
@@ -20,9 +13,9 @@ class Swiper extends Component{
                     <Carousel
                         autoplay={true}
                         dots={false}
+                        infinite
                     >
                         {this.renderswiper()}
-                        <img alt="" src={swiper}></img>
                     </Carousel>
                    
                 </SwriperContainer> 

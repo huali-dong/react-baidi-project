@@ -173,13 +173,14 @@ export const HomemainContainer = styled.div`
                 }
             }
         }
-
-        .swiper-container{
-            width:10rem;
-            height:5.333333rem;
+        .swiper-box{
+            width:auto;
+            height:4.333333rem;
+            .swiper-container{
+            height:4.333333rem;
             padding-bottom:.4rem;
+            position: relative;
             .swiper-wrapper{
-                width:100%;
                 height:100%;
                 .swiper-slide{
                     width:3.066667rem;
@@ -198,8 +199,83 @@ export const HomemainContainer = styled.div`
                             line-height:.373333rem;
                             width:3.066667rem;
                         }
+                    .price{
+                        color: #ef2b2f;
+                        font-size: .32rem;
+                        font-weight: 700;
+                        text-align: center;
+                        line-height: .266667rem;
+                    }
+                    .lowprie{
+                        text-align:center;
+                        text-decoration:line-through;
+                        color:#999;
+                        font-size:.32rem;
+                    }
                 }
             }
             
         }
+        }
+       
+`
+
+export const HomeOversears = styled.div`
+        margin-top:${props=>props.ismargin ?`.133333rem` : `0rem` };
+        width:10rem;
+        height:2.933333rem;
+        display:flex;
+        justify-content:space-between;
+        div{
+            height:100%;
+            img{
+                width:5rem;
+            }
+        }
+`
+export const Isreal = styled.div`
+        width:10rem;
+        height:1.6rem;
+        img{
+            width:10rem;
+            height:1.6rem;
+        }
+`
+export const Commonmodule = styled.div`
+
+`
+export const CommonImg = styled.div`
+    img{
+        width:100%;
+        height: 3.73333rem;
+    }
+`
+export const Commonswiper = styled.div`
+    .swiper-container{
+        height:4.8rem;
+        width:100%;
+        .swiper-slide{
+            width:3.52rem;
+            img{
+            width:3.52rem;
+            height:3.52rem;
+        }
+        .title{
+            margin-top:.08rem;
+            color: #cbcbcb;
+            overflow:hidden;
+            width:3.52rem;
+            height:.346667rem;
+            font-size:.266667rem;
+            text-overflow:ellipsis;
+            white-space:nowrap;
+        }
+        .price{
+            width:3.52rem;
+            height:.613333rem;
+            padding: .106667rem 0;
+            color: #e72714;
+    }
+    }
+}
 `
