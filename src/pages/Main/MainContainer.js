@@ -6,7 +6,8 @@ import uuid from "uuid"
 
 import HomeContanier from "@pages/Home";
 import ClassfyContainer from "@pages/Classfy";
-import MineContainer from "@pages/Mine"
+import MineContainer from "@pages/Mine";
+import ShopCarContainer from "@pages/ShopCar"
 
 import Home from "@as/images/Home.png"
 import HomeActive from "@as/images/HomeActive.png"
@@ -25,7 +26,7 @@ class MainContainer extends Component{
             tabItem :[
                 {id:uuid, title :"首页",component:<HomeContanier/>, icon:{default : Home,active :HomeActive},select:"/home"},
                 {id:uuid, title :"分类",component:<ClassfyContainer/>, icon:{default : Classfy,active :ClassfyActive},select:"/classfy" },
-                {id:uuid, title :"购物车",component:"789",icon:{default : Car,active :CarActive},select:"/car" },
+                {id:uuid, title :"购物车",component:<ShopCarContainer/>,icon:{default : Car,active :CarActive},select:"/car" },
                 {id:uuid, title :"我的",component:<MineContainer/>,icon:{default : Mine,active : MineActive},select:"/mine" }
             ]
         };

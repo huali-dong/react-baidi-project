@@ -1,6 +1,6 @@
 import React, { Component,Fragment } from 'react';
 import {ClassNavContainer,ClassfyContainerBar} from "./Classfystyled";
-import { withRouter} from "react-router-dom"
+import { withRouter} from "react-router-dom";
 class ClassfyNav extends Component{
     constructor(props){
         super(props)

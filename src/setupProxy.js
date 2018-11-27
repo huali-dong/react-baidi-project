@@ -5,7 +5,7 @@
       target: "https://m.bd-ego.com" ,
       "changeOrigin": true,
       "pathRewrite": {
-        "^/bda": " "
+        "^/bda": ""
       }
   }));
 };

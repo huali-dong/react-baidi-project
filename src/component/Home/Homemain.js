@@ -31,7 +31,7 @@ class Homemain extends Component{
         if(props.home.swiper.length>0){
             this.setState({
                 list: props.home.seconds,
-                isreal:props.home.swiper[9].list[0].bannerImg
+                isreal:props.home.swiper[8].list[0].bannerImg
             })
         }else{
             return false;
@@ -58,18 +58,19 @@ class Homemain extends Component{
         if(this.props.home.swiper.length>0){
             return(
                 <Fragment>
-                    <Homecommon imgindex = {10}  activityId={this.props.home.swiper[11].list[0].activityId}></Homecommon>
-                    <Homecommon imgindex = {12}  activityId={this.props.home.swiper[13].list[0].activityId}></Homecommon>
-                    <Homecommon imgindex = {14}  activityId={this.props.home.swiper[15].list[0].activityId}></Homecommon>
-                    <Homecommon imgindex = {16}  activityId={this.props.home.swiper[17].list[0].activityId}></Homecommon>
-                    <Homecommon imgindex = {18}  activityId={this.props.home.swiper[19].list[0].activityId}></Homecommon>
-                    <Homecommon imgindex = {20}  activityId={this.props.home.swiper[21].list[0].activityId}></Homecommon>
-                    <Homecommon imgindex = {22}  activityId={this.props.home.swiper[23].list[0].activityId}></Homecommon>
+                    <Homecommon imgindex = {9}  activityId={this.props.home.swiper[10].list[0].activityId}></Homecommon>
+                    <Homecommon imgindex = {11}  activityId={this.props.home.swiper[12].list[0].activityId}></Homecommon>
+                    <Homecommon imgindex = {13}  activityId={this.props.home.swiper[14].list[0].activityId}></Homecommon>
+                    <Homecommon imgindex = {15}  activityId={this.props.home.swiper[16].list[0].activityId}></Homecommon>
+                    <Homecommon imgindex = {17}  activityId={this.props.home.swiper[18].list[0].activityId}></Homecommon>
+                    <Homecommon imgindex = {19}  activityId={this.props.home.swiper[20].list[0].activityId}></Homecommon>
+                    <Homecommon imgindex = {21}  activityId={this.props.home.swiper[22].list[0].activityId}></Homecommon>
                 </Fragment>
             )
         }else{
             return "";
         }
+
 
     }
     render(){

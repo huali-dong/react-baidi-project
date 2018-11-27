@@ -1,18 +1,18 @@
 import React, { Component,Fragment } from 'react'
-import {ScrollTop} from "./styled"
+import {Scrolltop} from "./styled"
 import topimg from "@as/images/back_top.png"
-class Scroll_top extends Component {
-
+class ScrollTop extends Component {
+    
     render () {
         return (
             <Fragment>
-                <ScrollTop>
+                <Scrolltop onClick={this.props.click}>
                     <img src={topimg}/>
-                </ScrollTop>
+                </Scrolltop>
             </Fragment>
         )
     }
 
 }
 
-export default Scroll_top
+export default ScrollTop

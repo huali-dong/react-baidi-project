@@ -86,16 +86,12 @@ export const ClassfyContainerboxItem = styled.li`
         line-height: 1.733333rem;
         font-size: .373333rem;
         a{
-            color: #000;
+            color:${props=>props.actives?"#e72714" : "#000"};
             font-size: .37333rem;
-            &:active{
-                font-size: .37333rem;
-                color: #e72714;
-                border-bottom: 2px solid #e72714;
-            }
+            border-bottom: ${props=>props.actives?"2px solid #e72714" : ""};
         }
         img{
-            display: block;
+            display: ${props=>props.actvies?"block":"none"};
             position: absolute;
             width: .213333rem;
             height: .453333rem;
@@ -131,5 +127,29 @@ export const ClassfyContainerboxRightLi = styled.li`
         }
         div{
 
+        }
+`
+
+export const BrandName = styled.div`
+    height: 1.04rem;
+    line-height: 1.04rem;
+    color: #666;
+    font-size: .37333rem;
+    padding-left: .426667rem;
+`
+export const BrandImg = styled.ul`
+        border:none;
+        font-size:0;
+        background-color:#fff;
+        li{
+            width: 3.306667rem;
+            height: 3.333333rem;
+            display: inline-block;
+            box-sizing: border-box;
+            border-bottom: 2px solid #f4f4f4;
+            border-right: 1px solid #f4f4f4
+        }
+        img{
+            width:100%;height:100%;
         }
 `

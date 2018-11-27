@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import MainContainer from './pages/Main/MainContainer';
+import React, { Component } from 'react'
 import axios from "axios"
+import {Route} from "react-router-dom"
 class App extends Component {
   // constructor(props){
   //   super(props)
@@ -17,7 +17,9 @@ class App extends Component {
   // }
     render(){
       return (
-        <MainContainer/>
+        <div>
+            {this.props.children}
+        </div>
       )
     }
 }

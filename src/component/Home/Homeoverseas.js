@@ -12,8 +12,8 @@ class Homeovserseas extends Component {
     componentWillReceiveProps(props,state){
         if(props.home.swiper.length>0){
             this.setState({
-                list1:props.home.swiper[7].list,
-                list2:props.home.swiper[8].list,
+                list1:props.home.swiper[6].list,
+                list2:props.home.swiper[7].list,
             })
         } else{
             return false;

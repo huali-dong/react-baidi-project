@@ -35,7 +35,7 @@ export const NavContanier = styled.div`
 export const  ProductdetailBox = styled.div`
 
 `
-export const ScrollTop = styled.div`
+export const Scrolltop = styled.div`
     position: fixed;
     bottom: 1.933333rem;
     right: .266667rem;
