@@ -7,6 +7,7 @@ import {Provider} from "react-redux"
 import store from "./store"
 import MainContainer from '@pages/Main/MainContainer'
 import Detail from "@pages/detail"
+import ShopCar from "@pages/ShopCar"
 import "@lib"
 ReactDOM.render(
    <Provider store = {store}>
@@ -14,6 +15,7 @@ ReactDOM.render(
             <App>
                 <Switch>
                     <Route path="/detail" component={Detail}></Route>
+                    <Route path="/car" component={ShopCar}></Route>
                     <Route path="/"  component={MainContainer}/>
                 </Switch>
             </App>

@@ -12,7 +12,8 @@ class Homemain extends Component{
         super(props)
         this.state = {
             list : [],
-            isreal:[]
+            isreal:[],
+            num :[9,11,13,15,17,19,21]
         }
         this.rendswipersilde= this.rendswipersilde.bind(this);
         this.renderHomecommon = this.renderHomecommon.bind(this)
@@ -57,15 +58,11 @@ class Homemain extends Component{
     renderHomecommon(){
         if(this.props.home.swiper.length>0){
             return(
-                <Fragment>
-                    <Homecommon imgindex = {9}  activityId={this.props.home.swiper[10].list[0].activityId}></Homecommon>
-                    <Homecommon imgindex = {11}  activityId={this.props.home.swiper[12].list[0].activityId}></Homecommon>
-                    <Homecommon imgindex = {13}  activityId={this.props.home.swiper[14].list[0].activityId}></Homecommon>
-                    <Homecommon imgindex = {15}  activityId={this.props.home.swiper[16].list[0].activityId}></Homecommon>
-                    <Homecommon imgindex = {17}  activityId={this.props.home.swiper[18].list[0].activityId}></Homecommon>
-                    <Homecommon imgindex = {19}  activityId={this.props.home.swiper[20].list[0].activityId}></Homecommon>
-                    <Homecommon imgindex = {21}  activityId={this.props.home.swiper[22].list[0].activityId}></Homecommon>
-                </Fragment>
+                this.state.num.map((item,i)=>{
+                    return (
+                         <Homecommon key={i} imgindex = {item}  activityId={this.props.home.swiper[item+1].list[0].activityId}></Homecommon>
+                    )
+                })
             )
         }else{
             return "";

@@ -4,7 +4,7 @@ import Left from "@as/images/header-left.png"
 import Search from "@as/images/search.png"
 import Right from "@as/images/header-right.png"
 import Close from "@as/images/cha.png"
-class Movie extends Component{
+class Header extends Component{
     constructor(props){
         super(props)
         this.state={
@@ -33,4 +33,4 @@ class Movie extends Component{
     }
 }
 
-export default Movie
+export default Header

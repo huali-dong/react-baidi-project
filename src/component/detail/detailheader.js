@@ -3,24 +3,35 @@ import {DetailHeaderBox, DetailImgSwiper,Detailgood} from "./styled"
 import {  Carousel } from 'antd-mobile'
 import axios from "axios"
 import {withRouter} from "react-router-dom"
+import bus from "@util/bus"
+import connect from "@connect"
+import Detailfooter from "@c/detail/detailfoot/detailfooter"
 class DetailHeader extends Component {
     constructor(props){
         super(props)
         this.state={
-            list:[],
+            list:"",
         }
         this.renderswiper = this.renderswiper.bind(this)
         this.goback = this.goback.bind(this)
+        bus.on("addcar",()=>{//添加商品信息，但是按钮在底部组件，并且是非父子组件，所以用了event/bus
+            let options={
+                id:this.state.list.itemCode,
+                num:1,
+                img:this.state.list.imageList[0],
+                price:this.state.list.salePrice,
+                name:this.state.list.itemTitle
+            }
+            this.props.detail_actions.addcar(options)
+        })
     }
     async componentWillMount(){
-        console.log(this.props)
         let code  = this.props.location.state.code;
       let res = await axios.get("/bda/bd-product/api/item/itemDetail?itemCode="+code+"&_t=1543319094713")
         .then((res)=>{
-            // console.log(res)
             return res;
         })
-         this.setState({
+        this.setState({
             list:res.data.data
         })
     }
@@ -78,6 +89,8 @@ class DetailHeader extends Component {
                             </div>
                     </div>
                 </Detailgood>
+                {(!list.itemCode )?"":<Detailfooter id={list.itemCode}/> }
+                
             </Fragment>
         )
     }
@@ -94,4 +107,4 @@ class DetailHeader extends Component {
     }
 }
 
-export default withRouter(DetailHeader)
+export default withRouter(connect(DetailHeader,[{name:"detail"}]))

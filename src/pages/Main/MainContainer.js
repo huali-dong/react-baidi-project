@@ -33,7 +33,7 @@ class MainContainer extends Component{
       }
 
       renderContent() {
-        let {tabItem : tab} = this.state
+        let {tabItem : tab} = this.state;
             return tab.map( tab => (
                 <TabBar.Item
                         key={tab.id}

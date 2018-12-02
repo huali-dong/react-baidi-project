@@ -1,4 +1,5 @@
 
-export const state = {
-    mount:0,
+export default {
+    goods:[],
+    detail:[]
 }
